@@ -1,0 +1,86 @@
+﻿@model MobilyaTanitim.Models.Entity.Esyalar
+@{
+    ViewBag.Title = "UrunEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@*<form method="post" class="form-group">
+        <div>
+            <label>Ürün Adı</label>
+            <input type="text" class="form-control" name="EşyaAd" required="" maxlength="50" />
+        </div>
+
+        <div>
+            <label>Eşya Resim</label>
+            <input type="text" class="form-control" name="EşyaResim" required="" />
+
+        </div>
+
+        <div style="margin-top:15px;">
+            <label>Kategori Seçiniz</label>
+            @Html.DropDownListFor(m => m.Kategoriler.Kategoriid, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        </div>
+
+        <div>
+            <label>Detay Resim1</label>
+            <input type="text" class="form-control" name="DetayResim1" required="" />
+        </div>
+        <div>
+            <label>Detay Resim2</label>
+            <input type="text" class="form-control" name="DetayResim2" required="" />
+        </div>
+
+        <div>
+            <label>Detay Resim3</label>
+            <input type="text" class="form-control" name="DetayResim3" required="" />
+        </div>
+        <div>
+            <label>Detay İçerik</label>
+            <textarea type="text" class="form-control" name="Detayicerik" style="height:75px;" required=""></textarea>
+
+        </div>
+        <div>
+            <label>Fiyat</label>
+            <input type="text" class="form-control" name="Fiyat" required="" />
+        </div>
+        <div style="margin-top:15px;">
+            <button class="btn btn-info" id="btn1">Kategori Ekle</button>
+        </div>
+
+        <script>
+            $('#btn1').click(function () {
+                alert("Ürün Ekleme İşlemi Yapıldı...")
+            });
+        </script>
+    </form>*@
+
+@using (Html.BeginForm("UrunEkle", "Urun", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <p>Ürün Adı</p>
+    @Html.TextBoxFor(x => x.EşyaAd, new { @class = "form-control" })
+    <br />
+    <p>Ürün Resim</p>
+    <input type="file" name="EşyaResim" />
+    <br />
+    <p>Kategori Seçiniz</p>
+    @Html.DropDownListFor(m => m.Kategoriler.Kategoriid, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+    <p>Detay Resim1</p>
+    <input type="file" name="DetayResim1" />
+    <br />
+    <p>Detay Resim2</p>
+    <input type="file" name="DetayResim2" />
+    <br />
+    <p>Detay Resim3</p>
+    <input type="file" name="DetayResim3" />
+    <br />
+    <p>Detay İçerik</p>
+    @Html.TextAreaFor(x => x.Detayicerik, new { @class = "form-control" })
+    <br />
+    <p>Fiyat</p>
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    <br />
+
+    <input type="submit" value="Gönder" class="btn btn-primary" />
+}

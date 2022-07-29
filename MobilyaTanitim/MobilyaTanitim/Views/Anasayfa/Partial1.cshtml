@@ -1,0 +1,23 @@
+﻿
+@using MobilyaTanitim.Models.Entity
+@model List<Esyalar>
+
+    <div class="con-bot" style="margin-top:12px;">
+        @foreach (var x in Model)
+        {
+            <div class="left" style="margin-left:90px;">
+                <div class="bot-left" style="width:400px; height:222px;  ">
+                    <img src="@x.EşyaResim" style="width:400px; height:200px; " alt="" />
+                </div>
+                <div class="left-text" >
+                    <h4 style="color:black">@x.EşyaAd</h4>
+                    <h4 style="color:black">@x.Fiyat TL</h4>
+                    <p ><a href="/DetaySayfa/Index/@x.Eşyaid"><span class="read, btn btn-primary"  >Devamını Oku >></span></a></p>
+                </div>
+            </div>
+        }
+        @*@Html.Action("Partial2", "Anasayfa")*@
+
+        <div class="clear"></div>
+    </div>
+

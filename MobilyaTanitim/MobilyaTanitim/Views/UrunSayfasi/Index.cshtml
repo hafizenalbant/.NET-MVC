@@ -1,0 +1,176 @@
+﻿@using MobilyaTanitim.Models.Entity
+@model List<Esyalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+
+
+    <  <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+
+            @*<div class="section-title">
+                  <h2>Portfolio</h2>
+                  <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit</p>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-12">
+                    <ul id="portfolio-flters">
+                      <li data-filter="*" class="filter-active">All</li>
+                      <li data-filter=".filter-app">App</li>
+                      <li data-filter=".filter-card">Card</li>
+                      <li data-filter=".filter-web">Web</li>
+                    </ul>
+                  </div>
+                </div>*@
+
+            <div class="row portfolio-container">
+
+                @foreach (var x in Model)
+                {
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" style="margin-top:40px;">
+
+                        <div class="portfolio-wrap">
+                            <figure>
+                                <img src="@x.EşyaResim" class="img-fluid" alt="" style=" height:240px;">
+                                <a href="@x.EşyaResim" data-gall="portfolioGallery" class="link-preview venobox" title="Preview"><i class="bx bx-plus"></i></a>
+                                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                            </figure>
+
+                            <div class="portfolio-info" style="height:auto;">
+                                <p style="color:black;">@x.EşyaAd</p>
+                                <button class="btn btn-light" style="margin-top:10px;"><a href="/ÜrünDetayÖrnek/Index/@x.Eşyaid">ÜRÜNÜ İNCELE</a></button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                }
+
+                @*<div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+                      <div class="portfolio-wrap">
+                        <figure>
+                          <img src="~/Lumia/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+                          <a href="~/Lumia/assets/img/portfolio/portfolio-2.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
+                          <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                          <h4><a href="portfolio-details.html">Web 3</a></h4>
+                          <p>Web</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+                      <div class="portfolio-wrap">
+                        <figure>
+                          <img src="~/Lumia/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+                          <a href="~/Lumia/assets/img/portfolio/portfolio-3.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
+                          <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                          <h4><a href="portfolio-details.html">App 2</a></h4>
+                          <p>App</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+                      <div class="portfolio-wrap">
+                        <figure>
+                          <img src="~/Lumia/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+                          <a href="~/Lumia/assets/img/portfolio/portfolio-4.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
+                          <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                          <h4><a href="portfolio-details.html">Card 2</a></h4>
+                          <p>Card</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+                      <div class="portfolio-wrap">
+                        <figure>
+                          <img src="~/Lumia/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+                          <a href="~/Lumia/assets/img/portfolio/portfolio-5.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
+                          <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                          <h4><a href="portfolio-details.html">Web 2</a></h4>
+                          <p>Web</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+                      <div class="portfolio-wrap">
+                        <figure>
+                          <img src="~/Lumia/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+                          <a href="~/Lumia/assets/img/portfolio/portfolio-6.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
+                          <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                          <h4><a href="portfolio-details.html">App 3</a></h4>
+                          <p>App</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+                      <div class="portfolio-wrap">
+                        <figure>
+                          <img src="~/Lumia/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+                          <a href="~/Lumia/assets/img/portfolio/portfolio-7.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
+                          <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                          <h4><a href="portfolio-details.html">Card 1</a></h4>
+                          <p>Card</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
+                      <div class="portfolio-wrap">
+                        <figure>
+                          <img src="~/Lumia/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+                          <a href="~/Lumia/assets/img/portfolio/portfolio-8.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
+                          <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                          <h4><a href="portfolio-details.html">Card 3</a></h4>
+                          <p>Card</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
+                      <div class="portfolio-wrap">
+                        <figure>
+                          <img src="~/Lumia/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+                          <a href="~/Lumia/assets/img/portfolio/portfolio-9.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
+                          <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                          <h4><a href="portfolio-details.html">Web 1</a></h4>
+                          <p>Web</p>
+                        </div>
+                      </div>
+                    </div>*@
+
+            </div>
+
+        </div>
+    </section><!-- End Portfolio Section -->

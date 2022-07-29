@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MvcMobilyaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Esyalar">
+    <Key>
+      <PropertyRef Name="Eşyaid" />
+    </Key>
+    <Property Name="Eşyaid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EşyaAd" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="EşyaResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Kategoriid" Type="Int32" />
+    <Property Name="DetayResim1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DetayResim2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DetayResim3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Detayicerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fiyat" Type="Int32" />
+    <NavigationProperty Name="Kategoriler" Relationship="Self.FK_Esyalar_Kategoriler" FromRole="Esyalar" ToRole="Kategoriler" />
+  </EntityType>
+  <EntityType Name="Kategoriler">
+    <Key>
+      <PropertyRef Name="Kategoriid" />
+    </Key>
+    <Property Name="Kategoriid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriAd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Esyalar" Relationship="Self.FK_Esyalar_Kategoriler" FromRole="Kategoriler" ToRole="Esyalar" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Esyalar_Kategoriler">
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="0..1" />
+    <End Role="Esyalar" Type="Self.Esyalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriler">
+        <PropertyRef Name="Kategoriid" />
+      </Principal>
+      <Dependent Role="Esyalar">
+        <PropertyRef Name="Kategoriid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MvcMobilyaEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Esyalar" EntityType="Self.Esyalar" />
+    <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Esyalar_Kategoriler" Association="Self.FK_Esyalar_Kategoriler">
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+      <End Role="Esyalar" EntitySet="Esyalar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
